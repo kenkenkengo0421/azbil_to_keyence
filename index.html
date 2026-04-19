@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <main class="container">
+       <header class="header">
+         <p>指示調節計 ====> PLC  [PID設定変換]</p>
+       </header>
+        
+            <div class="memo1">
+          <br>
+          <pre>
+            <code>
+[設定]
+            
+          azbil :   P(比例帯) [ 0.1～999.9% ]
+
+                    I(積分時間)[ 0～9999s ]
+
+                    D(微分時間)[ 0.0～999.9s ]
+
+      PVの温度帯:   小数点の値の/ 0.1 で入力 ※ センサが0-50.0℃ の場合＝500
+
+          MVの幅:   0-100 の場合100
+ 
+ 入力
+
+-----------------------------------------------------------------------------
+
+ 出力
+
+
+KV8000 PID命令 :   比例定数(Kp) [ 1～50000 ]
+
+                    積分定数(Ti) [ 1～30000 ]
+
+                    微分定数(Td) [ 0～30000 ]
+            </code>
+          </pre>
+        </div>
+
+        <div class="r36">
+          <p><img class="imgsc" src="img/r36img.png" alt=""></P>
+        </div> 
+        
+        <div class="send1">
+          <br>
+          <p><img class="imgsc" src="img/Arrow.png" alt=""></p>
+        </div>
+
+        <div class="plc">
+          <p><img class="imgsc" src="img/plcimg.png" alt=""></p>
+        </div>
+
+        <div class="r36_param">
+          <p>[ 入力 ]</p>
+          <p>P:<input type="number" id="in_az_p" value="5"></p>
+          <p>I:<input type="number" id="in_az_i" value="120"></p>
+          <p>D:<input type="number" id="in_az_d" value="0"></p>
+          <p>PV幅:<input type="number" id="in_pv_range" value="500"></p>
+          <p>MV幅:<input type="number" id="in_mv_range" value="100"></p>
+        </div>
+
+        <div class="send2">
+          <p id="btn_size">
+            <button id="btn">変換</button>
+          </p>  
+        </div>
+
+        <div class="plc_param">
+          <p>[ 出力 ]</p>
+          <p>P:<span id="plc_p"></span></p>
+          <p>I:<span id="plc_i"></span></p>
+          <p>D:<span id="plc_d"></span></p>
+        </div>
+          <script src="azbil_to_keyence.js"></script>
+
+        <footer class="footer">
+       </footer>
+    </main>
+  
+  </body>
+</html>
+
