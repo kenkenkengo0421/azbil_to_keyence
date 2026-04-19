@@ -1,5 +1,8 @@
 # アズビル → KV-8000 PID変換
 
+## [変換ツールURL](https://kenkenkengo0421.github.io/azbil_to_keyence/)
+
+
 アズビルの設定（図面値）を、キーエンスPLCに入力する数値に変換
 
 
