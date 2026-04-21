@@ -1,3 +1,5 @@
+![](https://visitor-badge.laobi.icu/badge?page_id=kenkenkengo0421/azbil_to_keyence/edit/main/README.md)
+
 # アズビル → KV-8000 PID変換
 
 ## [変換ツールURL](https://kenkenkengo0421.github.io/azbil_to_keyence/)
