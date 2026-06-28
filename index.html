@@ -4,63 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="style.css" rel="stylesheet">
+  
+    <style type="text/css">
+table {
+  border-collapse: collapse;
+  border: 2px solid rgb(140 140 140);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+    </style>
   </head>
+ 
   <body>
-    <main class="container">
-       <header class="header">
-         <p>指示調節計 ====> PLC  [PID設定変換]</p>
-       </header>
-        
-            <div class="memo1">
+    <main>        
           <br>
           <pre>
             <code>
-[設定]
-            
-          azbil :   P(比例帯) [ 0.1～999.9% ]
-
-                    I(積分時間)[ 0～9999s ]
-
-                    D(微分時間)[ 0.0～999.9s ]
-
-      PVの温度帯:   小数点の値の/ 0.1 で入力 
-                    ※ センサが0-50.0℃ の場合＝500
-
-
-          MVの幅:   0-100 の場合100
- 
- 入力
-
-----------------------------------------------
-
- 出力
-
-
-KV8000 PID命令 :   比例定数(Kp) [ 1～50000 ]
-
-                   積分定数(Ti) [ 1～30000 ]
-
-                   微分定数(Td) [ 0～30000 ]
-            </code>
+ <table border="1">
+入力項目
+    <tr>
+      <th>設定項目</th>
+      <th>設定範囲</th>
+    </tr>
+    <tr>
+      <td>P(比例帯)</td>
+      <td>0.1～999.9%</td>
+    </tr>
+    <tr>
+      <td>I(積分時間)</td>
+      <td>0～9999s</td>
+    </tr>
+    <tr>
+      <td>D(微分時間)</td>
+      <td>0.0～999.9s</td>
+    </tr>
+    <tr>
+      <td>PVの温度帯</td>
+      <td>値の/ 0.1 で入力 <br>※ センサが0-50.0℃ の場合＝500 </td>
+    </tr>
+    <tr>
+      <td>MVの幅</td>
+      <td>0-100 の場合100</td>
+    </tr>
+  </table>
+  
+  <table border="1">
+出力項目
+    <tr>
+      <th>設定項目</th>
+      <th>設定範囲</th>
+    </tr>
+    <tr>
+      <td>比例定数(kp)</td>
+      <td>1～50000        </td>
+    </tr>
+    <tr>
+      <td>積分定数(Ti)</td>
+      <td>1～30000</td>
+    </tr>
+    <tr>
+      <td>微分定数(Td)</td>
+      <td>0～30000</td>
+    </tr>
+  </table>
           </pre>
         </div>
 
-        <div class="r36">
-          <p><img class="imgsc" src="img/r36img.png" alt=""></P>
-        </div> 
-        
-        <div class="send1">
-          <br>
-          <p><img class="imgsc" src="img/Arrow.png" alt=""></p>
-        </div>
-
-        <div class="plc">
-          <p><img class="imgsc" src="img/plcimg.png" alt=""></p>
-        </div>
-
-        <div class="r36_param">
-          <p>[ 入力 ]</p>
+        <div>
+          <p>入力</p>
           <p>P:<input type="number" id="in_az_p" value="5"></p>
           <p>I:<input type="number" id="in_az_i" value="120"></p>
           <p>D:<input type="number" id="in_az_d" value="0"></p>
@@ -68,24 +79,34 @@ KV8000 PID命令 :   比例定数(Kp) [ 1～50000 ]
           <p>MV幅:<input type="number" id="in_mv_range" value="100"></p>
         </div>
 
-        <div class="send2">
+        <div>
           <p id="btn_size">
             <button id="btn">変換</button>
           </p>  
         </div>
-
-        <div class="plc_param">
-          <p>[ 出力 ]</p>
-          <p>P:<span id="plc_p"></span></p>
-          <p>I:<span id="plc_i"></span></p>
-          <p>D:<span id="plc_d"></span></p>
-        </div>
+<br><br>
+  <table  border="1">
+出力結果
+    <tr>
+      <th>出力項目</th>
+      <th>結果(PLCに入力する値)</th>
+    </tr>
+    <tr>
+      <td>比例定数(kp)</td>
+      <td><span id="plc_p"></span></td>
+    </tr>
+    <tr>
+      <td>積分定数(Ti)</td>
+      <td><span id="plc_i"></td>
+    </tr>
+    <tr>
+      <td>微分定数(Td)</td>
+      <td><span id="plc_d"></td>
+    </tr>
+  </table>
           <script src="azbil_to_keyence.js"></script>
-
-        <footer class="footer">
-       </footer>
-    </main>
-  
+  <br><br><br>
+  <a href="pdf/key_pid.pdf">キーエンスPID命令詳細</a><br>
+  <a href="pdf/as_pid.pdf">アズビルPID命令詳細</a>
   </body>
 </html>
-
